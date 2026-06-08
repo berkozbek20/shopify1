@@ -100,7 +100,7 @@
         "promo_text": "Use this bar for a limited offer, bundle, or shipping message.",
         "primary_label": "View product",
         "primary_link": "",
-        "secondary_label": "Buy on this page",
+        "secondary_label": "Buy on this page{{ section.settings.product.vendor }}",
         "secondary_link": "#single-product-buy",
         "show_product_strip": true,
         "strip_label": "Open product",
