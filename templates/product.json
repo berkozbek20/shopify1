@@ -12,15 +12,19 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
+        "badge": {
           "type": "text",
           "settings": {
-            "text": "{{ product.vendor }}",
+            "text": "Limited offer",
             "text_style": "uppercase"
           }
         },
         "title": {
           "type": "title",
+          "settings": {}
+        },
+        "rating": {
+          "type": "rating",
           "settings": {}
         },
         "price": {
@@ -41,13 +45,43 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
+          }
+        },
+        "trust_icons": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "truck",
+            "heading_1": "Shipping note",
+            "icon_2": "return",
+            "heading_2": "Return policy",
+            "icon_3": "lock",
+            "heading_3": "Secure checkout"
           }
         },
         "description": {
           "type": "description",
           "settings": {}
+        },
+        "details": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product details",
+            "icon": "clipboard",
+            "content": "<p>Add product details, dimensions, materials, or included items here.</p>",
+            "page": ""
+          }
+        },
+        "shipping": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping and returns",
+            "icon": "truck",
+            "content": "<p>Add your shipping, delivery, and return information here.</p>",
+            "page": ""
+          }
         },
         "share": {
           "type": "share",
@@ -57,13 +91,17 @@
         }
       },
       "block_order": [
-        "vendor",
+        "badge",
         "title",
+        "rating",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "trust_icons",
         "description",
+        "details",
+        "shipping",
         "share"
       ],
       "settings": {
@@ -72,37 +110,111 @@
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 32,
+        "padding_bottom": 24
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "product_story": {
+      "type": "single-product-landing",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "check_mark",
+            "title": "Key benefit",
+            "text": "<p>Replace this with one clear reason this product is worth buying.</p>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Customer-friendly",
+            "text": "<p>Use this for a trust point, guarantee, or product advantage.</p>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "title": "Easy to love",
+            "text": "<p>Add a benefit, feature, or outcome that supports the sale.</p>"
+          }
+        },
+        "story_1": {
+          "type": "story",
+          "settings": {
+            "heading": "More product context",
+            "text": "<p>Add lifestyle copy, specifications, or product use cases in this editable block.</p>"
+          }
+        },
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Review placeholder",
+            "text": "<p>Add your own customer feedback here.</p>",
+            "author": "Customer name"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Review placeholder",
+            "text": "<p>Use this block for social proof or a short testimonial.</p>",
+            "author": "Customer name"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Review placeholder",
+            "text": "<p>Replace this text after importing real content.</p>",
+            "author": "Customer name"
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "story_1",
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
       "settings": {
-        "heading": "You may also like",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
+        "product": "",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "show_hero": false,
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "hero_image": "",
+        "hero_note": "",
+        "promo_text": "",
+        "primary_label": "",
+        "primary_link": "",
+        "secondary_label": "",
+        "secondary_link": "",
+        "show_product_strip": false,
+        "strip_label": "",
+        "features_heading": "Why this product works",
+        "features_text": "<p>Use these editable sections for benefits, objections, and proof.</p>",
+        "reviews_heading": "Customer notes"
       }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "product_story"
   ]
 }

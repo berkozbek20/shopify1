@@ -1,0 +1,510 @@
+{{ 'section-single-product-landing.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign landing_product = section.settings.product
+  if landing_product == blank and product != blank
+    assign landing_product = product
+  endif
+
+  assign primary_link = section.settings.primary_link
+  if primary_link == blank and landing_product != blank
+    assign primary_link = landing_product.url
+  endif
+
+  assign feature_blocks = section.blocks | where: 'type', 'feature'
+  assign story_blocks = section.blocks | where: 'type', 'story'
+  assign review_blocks = section.blocks | where: 'type', 'review'
+-%}
+
+<div class="single-product-landing color-{{ section.settings.color_scheme }} gradient">
+  {%- if section.settings.show_hero -%}
+    <section class="single-product-landing__hero">
+      <div class="page-width">
+        <div class="single-product-landing__hero-grid">
+          <div>
+            {%- if section.settings.eyebrow != blank -%}
+              <p class="single-product-landing__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+            {%- endif -%}
+
+            {%- if section.settings.heading != blank -%}
+              <h1 class="single-product-landing__heading">{{ section.settings.heading }}</h1>
+            {%- elsif landing_product != blank -%}
+              <h1 class="single-product-landing__heading">{{ landing_product.title | escape }}</h1>
+            {%- endif -%}
+
+            {%- if section.settings.text != blank -%}
+              <div class="single-product-landing__text rte">{{ section.settings.text }}</div>
+            {%- endif -%}
+
+            <div class="single-product-landing__actions">
+              {%- if section.settings.primary_label != blank -%}
+                <a
+                  class="button button--primary"
+                  {% if primary_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ primary_link }}"
+                  {% endif %}
+                >
+                  {{ section.settings.primary_label | escape }}
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.secondary_label != blank -%}
+                <a
+                  class="button button--secondary"
+                  {% if section.settings.secondary_link == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ section.settings.secondary_link }}"
+                  {% endif %}
+                >
+                  {{ section.settings.secondary_label | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+
+            {%- if section.settings.promo_text != blank -%}
+              <p class="single-product-landing__promo">{{ section.settings.promo_text | escape }}</p>
+            {%- endif -%}
+          </div>
+
+          <div class="single-product-landing__image-wrap">
+            <div class="single-product-landing__image">
+              {%- if section.settings.hero_image != blank -%}
+                {{
+                  section.settings.hero_image
+                  | image_url: width: 1400
+                  | image_tag:
+                    widths: '375, 550, 750, 950, 1100, 1400',
+                    sizes: '(min-width: 990px) 48vw, 100vw',
+                    loading: 'eager'
+                }}
+              {%- elsif landing_product.featured_media != blank -%}
+                {{
+                  landing_product.featured_media
+                  | image_url: width: 1400
+                  | image_tag:
+                    widths: '375, 550, 750, 950, 1100, 1400',
+                    sizes: '(min-width: 990px) 48vw, 100vw',
+                    loading: 'eager'
+                }}
+              {%- else -%}
+                {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            {%- if section.settings.hero_note != blank -%}
+              <div class="single-product-landing__note">{{ section.settings.hero_note | escape }}</div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if section.settings.show_product_strip -%}
+    <section class="single-product-landing__section single-product-landing__product-band">
+      <div class="page-width single-product-landing__product-strip">
+        <div class="single-product-landing__product-media">
+          {%- if landing_product.featured_media != blank -%}
+            {{
+              landing_product.featured_media
+              | image_url: width: 360
+              | image_tag: widths: '180, 240, 360', sizes: '180px', loading: 'lazy'
+            }}
+          {%- else -%}
+            {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+
+        <div>
+          <h2 class="single-product-landing__product-title">
+            {%- if landing_product != blank -%}
+              {{ landing_product.title | escape }}
+            {%- else -%}
+              Featured product
+            {%- endif -%}
+          </h2>
+          {%- if landing_product != blank -%}
+            <div class="single-product-landing__product-price">
+              {%- render 'price', product: landing_product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.strip_label != blank -%}
+          <a
+            class="button button--primary"
+            {% if primary_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ primary_link }}"
+            {% endif %}
+          >
+            {{ section.settings.strip_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if feature_blocks.size > 0 -%}
+    <section class="single-product-landing__section single-product-landing__features">
+      <div class="page-width">
+        <div class="single-product-landing__section-header">
+          {%- if section.settings.features_heading != blank -%}
+            <h2 class="single-product-landing__section-heading">{{ section.settings.features_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.features_text != blank -%}
+            <div class="single-product-landing__text rte">{{ section.settings.features_text }}</div>
+          {%- endif -%}
+        </div>
+
+        <div class="single-product-landing__grid single-product-landing__grid--features">
+          {%- for block in feature_blocks -%}
+            <article class="single-product-landing__feature" {{ block.shopify_attributes }}>
+              <div class="single-product-landing__feature-icon">
+                {% render 'icon-accordion', icon: block.settings.icon %}
+              </div>
+              {%- if block.settings.title != blank -%}
+                <h3>{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if story_blocks.size > 0 -%}
+    <section class="single-product-landing__section single-product-landing__story">
+      <div class="page-width">
+        {%- for block in story_blocks -%}
+          <article class="single-product-landing__story-block" {{ block.shopify_attributes }}>
+            <div class="single-product-landing__story-grid">
+              <div class="single-product-landing__story-media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1100
+                    | image_tag:
+                      widths: '375, 550, 750, 950, 1100',
+                      sizes: '(min-width: 990px) 45vw, 100vw',
+                      loading: 'lazy'
+                  }}
+                {%- else -%}
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+
+              <div class="single-product-landing__story-copy">
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="single-product-landing__section-heading">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="single-product-landing__text rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if review_blocks.size > 0 -%}
+    <section class="single-product-landing__section single-product-landing__reviews">
+      <div class="page-width">
+        <div class="single-product-landing__section-header">
+          {%- if section.settings.reviews_heading != blank -%}
+            <h2 class="single-product-landing__section-heading">{{ section.settings.reviews_heading }}</h2>
+          {%- endif -%}
+        </div>
+
+        <div class="single-product-landing__grid single-product-landing__grid--reviews">
+          {%- for block in review_blocks -%}
+            <article class="single-product-landing__review" {{ block.shopify_attributes }}>
+              <div class="single-product-landing__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                {%- for i in (1..block.settings.rating) -%}*{%- endfor -%}
+              </div>
+              {%- if block.settings.title != blank -%}
+                <h3>{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rte">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.author != blank -%}
+                <div class="single-product-landing__review-author">{{ block.settings.author | escape }}</div>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Single product landing",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hero",
+      "label": "Show hero",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Creative play, made simple"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A bright product page built for one hero item"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Use this area for the main promise, who it is for, and why shoppers should keep reading. Replace this placeholder from the Shopify theme editor.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "text",
+      "id": "hero_note",
+      "label": "Hero image note",
+      "default": "Edit the image and copy from Shopify admin."
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Promo text",
+      "default": "Limited-time offer text can live here."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "View product"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Buy on this page"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_strip",
+      "label": "Show product strip",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "strip_label",
+      "label": "Product strip button label",
+      "default": "Open product"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "features_heading",
+      "label": "Features heading",
+      "default": "Everything shoppers need to decide"
+    },
+    {
+      "type": "richtext",
+      "id": "features_text",
+      "label": "Features text",
+      "default": "<p>Use these blocks for benefits, trust points, shipping notes, or product highlights.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "reviews_heading",
+      "label": "Reviews heading",
+      "default": "Customer notes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "check_mark",
+              "label": "Check mark"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "lightning_bolt",
+              "label": "Lightning"
+            },
+            {
+              "value": "lock",
+              "label": "Lock"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            }
+          ],
+          "default": "check_mark"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Editable benefit"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Describe one concrete reason to buy this product.</p>"
+        }
+      ]
+    },
+    {
+      "type": "story",
+      "name": "Image and text",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Tell the product story"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Add product details, use cases, and proof points here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Helpful review title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Replace this with your own customer review or social proof.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Customer name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Single product landing",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "story"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

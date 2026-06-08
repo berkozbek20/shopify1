@@ -1,0 +1,284 @@
+.single-product-landing {
+  color: rgb(var(--color-foreground));
+}
+
+.single-product-landing__hero,
+.single-product-landing__section {
+  padding: 4.8rem 0;
+}
+
+.single-product-landing__hero {
+  background: linear-gradient(135deg, #f7fbff 0%, #fff8ed 52%, #f7f8fb 100%);
+}
+
+.single-product-landing__hero-grid,
+.single-product-landing__story-grid,
+.single-product-landing__product-strip {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.single-product-landing__eyebrow,
+.single-product-landing__promo {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.single-product-landing__eyebrow {
+  margin: 0 0 1.6rem;
+  padding: 0.8rem 1.2rem;
+  background: #103f5c;
+  color: #ffffff;
+}
+
+.single-product-landing__promo {
+  margin: 2rem 0 0;
+  padding: 1rem 1.4rem;
+  background: #fff0d2;
+  color: #5a3510;
+  border: 0.1rem solid #f3c466;
+}
+
+.single-product-landing__heading,
+.single-product-landing__section-heading {
+  margin: 0;
+  letter-spacing: 0;
+  color: #15232e;
+}
+
+.single-product-landing__heading {
+  max-width: 62rem;
+  font-size: clamp(3.2rem, 5vw, 6.2rem);
+  line-height: 0.98;
+}
+
+.single-product-landing__section-heading {
+  font-size: clamp(2.8rem, 3.2vw, 4.4rem);
+  line-height: 1.05;
+}
+
+.single-product-landing__text {
+  max-width: 60rem;
+  margin: 1.8rem 0 0;
+  color: #43515c;
+  font-size: 1.7rem;
+  line-height: 1.65;
+}
+
+.single-product-landing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2.6rem;
+}
+
+.single-product-landing__image-wrap {
+  position: relative;
+}
+
+.single-product-landing__image {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 0.1rem solid rgba(21, 35, 46, 0.1);
+  background: #ffffff;
+  box-shadow: 0 1.8rem 5rem rgba(21, 35, 46, 0.12);
+}
+
+.single-product-landing__image img,
+.single-product-landing__image .placeholder-svg,
+.single-product-landing__story-media img,
+.single-product-landing__story-media .placeholder-svg,
+.single-product-landing__product-media img,
+.single-product-landing__product-media .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.single-product-landing__note {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  max-width: 22rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #15232e;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.35;
+  box-shadow: 0 1rem 2.8rem rgba(21, 35, 46, 0.14);
+}
+
+.single-product-landing__features,
+.single-product-landing__reviews {
+  background: #ffffff;
+}
+
+.single-product-landing__section-header {
+  max-width: 76rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.single-product-landing__grid {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.single-product-landing__feature,
+.single-product-landing__review {
+  border: 0.1rem solid rgba(21, 35, 46, 0.1);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 2.2rem;
+  box-shadow: 0 1.2rem 3rem rgba(21, 35, 46, 0.06);
+}
+
+.single-product-landing__feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  margin-bottom: 1.4rem;
+  border-radius: 50%;
+  background: #e8faf6;
+  color: #087864;
+}
+
+.single-product-landing__feature-icon .icon {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.single-product-landing__feature h3,
+.single-product-landing__review h3 {
+  margin: 0 0 0.8rem;
+  color: #15232e;
+  font-size: 1.8rem;
+  letter-spacing: 0;
+}
+
+.single-product-landing__feature .rte,
+.single-product-landing__review .rte {
+  color: #51606b;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.single-product-landing__feature .rte > *:first-child,
+.single-product-landing__review .rte > *:first-child {
+  margin-top: 0;
+}
+
+.single-product-landing__feature .rte > *:last-child,
+.single-product-landing__review .rte > *:last-child {
+  margin-bottom: 0;
+}
+
+.single-product-landing__story {
+  background: #f7f8fb;
+}
+
+.single-product-landing__story-block + .single-product-landing__story-block {
+  margin-top: 4rem;
+}
+
+.single-product-landing__story-block:nth-child(even) .single-product-landing__story-media {
+  order: 2;
+}
+
+.single-product-landing__story-media {
+  overflow: hidden;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.single-product-landing__story-copy {
+  max-width: 62rem;
+}
+
+.single-product-landing__stars {
+  color: #f2a900;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+}
+
+.single-product-landing__review-author {
+  margin-top: 1.4rem;
+  color: #15232e;
+  font-weight: 700;
+}
+
+.single-product-landing__product-band {
+  border-top: 0.1rem solid rgba(21, 35, 46, 0.1);
+  border-bottom: 0.1rem solid rgba(21, 35, 46, 0.1);
+  background: #fff8ed;
+}
+
+.single-product-landing__product-media {
+  max-width: 18rem;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.single-product-landing__product-title {
+  margin: 0;
+  color: #15232e;
+  font-size: 2.4rem;
+  letter-spacing: 0;
+}
+
+.single-product-landing__product-price {
+  margin-top: 0.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  .single-product-landing__hero,
+  .single-product-landing__section {
+    padding: 7rem 0;
+  }
+
+  .single-product-landing__hero-grid,
+  .single-product-landing__story-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(32rem, 0.9fr);
+  }
+
+  .single-product-landing__product-strip {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .single-product-landing__grid--features {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .single-product-landing__grid--reviews {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .single-product-landing__hero,
+  .single-product-landing__section {
+    padding: 4rem 0;
+  }
+
+  .single-product-landing__note {
+    position: static;
+    margin-top: 1.2rem;
+    max-width: none;
+  }
+
+  .single-product-landing__product-media {
+    max-width: 14rem;
+  }
+}

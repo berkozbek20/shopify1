@@ -27,6 +27,25 @@
   display: inline-flex;
 }
 
+.section-featured-product .background-secondary {
+  background: #fff8ed;
+}
+
+.section-featured-product .featured-product {
+  border: 0.1rem solid rgba(21, 35, 46, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 1.6rem 4rem rgba(21, 35, 46, 0.08);
+}
+
+.section-featured-product .product__media-wrapper .global-media-settings {
+  background: #ffffff;
+}
+
+.section-featured-product .product__view-details {
+  font-weight: 700;
+  color: #103f5c;
+}
+
 .share-button + .product__view-details {
   display: inline-flex;
   float: right;
