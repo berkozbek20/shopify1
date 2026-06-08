@@ -2095,8 +2095,8 @@ input[type='checkbox'] {
 }
 
 .announcement-bar-section .utility-bar {
-  background: #ffd712 !important;
-  color: #000000;
+  background: #a76b3e !important;
+  color: #ffffff;
   border-bottom: 0;
 }
 
@@ -2104,7 +2104,7 @@ input[type='checkbox'] {
 .announcement-bar-section .announcement-bar__announcement,
 .announcement-bar-section .announcement-bar__message,
 .announcement-bar-section .announcement-bar__link {
-  color: #000000;
+  color: #ffffff;
 }
 
 .announcement-bar-section .announcement-bar__message {
