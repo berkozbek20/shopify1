@@ -8,7 +8,7 @@
 }
 
 .single-product-landing__hero {
-  background: linear-gradient(135deg, #f7fbff 0%, #fff8ed 52%, #f7f8fb 100%);
+  background: linear-gradient(135deg, #edf5f5 0%, #ffffff 48%, #fff7cc 100%);
 }
 
 .single-product-landing__hero-grid,
@@ -34,23 +34,23 @@
 .single-product-landing__eyebrow {
   margin: 0 0 1.6rem;
   padding: 0.8rem 1.2rem;
-  background: #103f5c;
+  background: #108474;
   color: #ffffff;
 }
 
 .single-product-landing__promo {
   margin: 2rem 0 0;
   padding: 1rem 1.4rem;
-  background: #fff0d2;
-  color: #5a3510;
-  border: 0.1rem solid #f3c466;
+  background: #ffd712;
+  color: #333333;
+  border: 0.1rem solid #fbcd0a;
 }
 
 .single-product-landing__heading,
 .single-product-landing__section-heading {
   margin: 0;
   letter-spacing: 0;
-  color: #15232e;
+  color: #333333;
 }
 
 .single-product-landing__heading {
@@ -67,7 +67,7 @@
 .single-product-landing__text {
   max-width: 60rem;
   margin: 1.8rem 0 0;
-  color: #43515c;
+  color: #5f6368;
   font-size: 1.7rem;
   line-height: 1.65;
 }
@@ -109,8 +109,8 @@
   max-width: 22rem;
   padding: 1.2rem 1.4rem;
   border-radius: 8px;
-  background: #ffffff;
-  color: #15232e;
+  background: #ffd712;
+  color: #333333;
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.35;
@@ -150,8 +150,8 @@
   height: 4.4rem;
   margin-bottom: 1.4rem;
   border-radius: 50%;
-  background: #e8faf6;
-  color: #087864;
+  background: #edf5f5;
+  color: #108474;
 }
 
 .single-product-landing__feature-icon .icon {
@@ -162,14 +162,14 @@
 .single-product-landing__feature h3,
 .single-product-landing__review h3 {
   margin: 0 0 0.8rem;
-  color: #15232e;
+  color: #333333;
   font-size: 1.8rem;
   letter-spacing: 0;
 }
 
 .single-product-landing__feature .rte,
 .single-product-landing__review .rte {
-  color: #51606b;
+  color: #5f6368;
   font-size: 1.5rem;
   line-height: 1.6;
 }
@@ -185,7 +185,7 @@
 }
 
 .single-product-landing__story {
-  background: #f7f8fb;
+  background: #f9fafb;
 }
 
 .single-product-landing__story-block + .single-product-landing__story-block {
@@ -207,21 +207,21 @@
 }
 
 .single-product-landing__stars {
-  color: #f2a900;
+  color: #ffc107;
   font-weight: 700;
   letter-spacing: 0.08rem;
 }
 
 .single-product-landing__review-author {
   margin-top: 1.4rem;
-  color: #15232e;
+  color: #333333;
   font-weight: 700;
 }
 
 .single-product-landing__product-band {
   border-top: 0.1rem solid rgba(21, 35, 46, 0.1);
   border-bottom: 0.1rem solid rgba(21, 35, 46, 0.1);
-  background: #fff8ed;
+  background: #edf5f5;
 }
 
 .single-product-landing__product-media {
@@ -233,7 +233,7 @@
 
 .single-product-landing__product-title {
   margin: 0;
-  color: #15232e;
+  color: #333333;
   font-size: 2.4rem;
   letter-spacing: 0;
 }

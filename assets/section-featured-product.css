@@ -28,7 +28,7 @@
 }
 
 .section-featured-product .background-secondary {
-  background: #fff8ed;
+  background: #edf5f5;
 }
 
 .section-featured-product .featured-product {
@@ -43,7 +43,7 @@
 
 .section-featured-product .product__view-details {
   font-weight: 700;
-  color: #103f5c;
+  color: #108474;
 }
 
 .share-button + .product__view-details {
