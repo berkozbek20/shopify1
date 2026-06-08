@@ -2,6 +2,36 @@
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
+.footer {
+  background: #a76b3e !important;
+  color: #ffffff;
+  border-top: 0;
+}
+
+.footer .footer-block__heading,
+.footer .footer-block__details-content,
+.footer .footer-block__details-content p,
+.footer .footer-block__details-content strong,
+.footer .footer__copyright,
+.footer .copyright__content,
+.footer .copyright__content a,
+.footer .list-social__link,
+.footer .footer-block__details-content .list-menu__item--link {
+  color: #ffffff;
+}
+
+.footer .footer-block__details-content a,
+.footer .footer-block__details-content .list-menu__item--active,
+.footer .copyright__content a:hover,
+.footer .footer-block__details-content .list-menu__item--link:hover {
+  color: #ffffff;
+  text-decoration-color: #ffd712;
+}
+
+.footer .footer__content-bottom {
+  border-top-color: rgba(255, 255, 255, 0.22);
+}
+
 .footer:not(.color-scheme-1) {
   border-top: none;
 }

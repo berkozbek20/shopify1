@@ -2094,6 +2094,24 @@ input[type='checkbox'] {
   height: 100%;
 }
 
+.announcement-bar-section .utility-bar {
+  background: #ffd712 !important;
+  color: #000000;
+  border-bottom: 0;
+}
+
+.announcement-bar-section .announcement-bar,
+.announcement-bar-section .announcement-bar__announcement,
+.announcement-bar-section .announcement-bar__message,
+.announcement-bar-section .announcement-bar__link {
+  color: #000000;
+}
+
+.announcement-bar-section .announcement-bar__message {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .utility-bar--bottom-border {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
@@ -2344,6 +2362,15 @@ input[type='checkbox'] {
   display: block;
   position: relative;
   background-color: rgb(var(--color-background));
+}
+
+.section-header .header-wrapper {
+  background: #ffffff;
+  color: #000000;
+}
+
+.section-header .header-wrapper--border-bottom {
+  border-bottom-color: #eeeeee;
 }
 
 .header-wrapper--border-bottom {
